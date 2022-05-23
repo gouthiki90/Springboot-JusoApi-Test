@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="https://www.juso.go.kr/addrlink/addrLinkUrl.do?confmKey=devU01TX0FVVEgyMDIyMDUyMzEwNDgzNTExMjYwMDA=&returnUrl=http://localhost:8080/juso/callback&resultType=4">주소 찾기 하이퍼링크</a>
+    <br>
+    <button onclick="jusoPopup()">주소 찾기</button> <br>
+    <input hidden type="text" value="{{jusoUrl}}" id="juso-url" />
+    <input type="text" value="" />
+
+    <script>
+        function jusoPopup() {
+            let jusoUrl = $("#juso-url").val();
+            window.open(jusoUrl, "pop", "width=570", "height=420");
+        }
+    </script>
+</body>
+
+</html>
