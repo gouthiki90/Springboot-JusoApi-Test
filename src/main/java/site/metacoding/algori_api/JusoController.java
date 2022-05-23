@@ -17,7 +17,7 @@ public class JusoController {
         return "index";
     }
 
-    // 해당 콜백이 호출되면 push 해주는 게 좋다.
+    // 해당 콜백이 호출되면 push 해주는 게 좋다. (웹소켓은 다른 포트로 만들고 SSE는 서버 안에 있는 곳에서 추가가 가능)
     @PostMapping("/juso/callback")
     public void jusoCallback(String roadFullAddr) {
         System.out.println(roadFullAddr);
