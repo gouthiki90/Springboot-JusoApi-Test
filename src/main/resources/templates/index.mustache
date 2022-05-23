@@ -14,13 +14,23 @@
     <br>
     <button onclick="jusoPopup()">주소 찾기</button> <br>
     <input hidden type="text" value="{{jusoUrl}}" id="juso-url" />
-    <input type="text" value="" />
+    <input type="text" value="" id="roadFullAddr"/>
 
     <script>
         function jusoPopup() {
             let jusoUrl = $("#juso-url").val();
-            window.open(jusoUrl, "pop", "width=570", "height=420");
+            window.open(jusoUrl, "pop", "width=570, height=420"); // 윈도우 창 크기 조절 팝업으로 띄움
+            //window.close();
         }
+
+        async function jusoCheck() {
+            let response = await fetch("/juso/check");
+            let responseParse = await response.text(); // JSON 아니니까 text로
+            console.log(responseParse);
+            $("#roadFullAddr").val(responseParse);
+        }
+
+        setInterval(jusoCheck, 1000); // 메서드 반복, 1초마다
     </script>
 </body>
 
